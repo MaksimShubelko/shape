@@ -14,14 +14,14 @@ public class BallParser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_DELIMITER_REGEX = "\\s+";
 
-    public List<double[]> parseStringListToArray(List<String> doubleStringList) throws BallException {
-        if (doubleStringList == null || doubleStringList.isEmpty()) {
+    public List<double[]> parseStringListToArray(List<String> stringList) throws BallException {
+        if (stringList == null || stringList.isEmpty()) {
             throw new BallException("List is null or hasn't any strings");
         }
 
         List<double[]> doubleArraysList;
 
-        doubleArraysList = doubleStringList.stream()
+        doubleArraysList = stringList.stream()
                 .map(String::trim)
                 .filter(BallValidator::isBallData)
                 .peek(line -> logger.log(Level.DEBUG, "{} added", line))
