@@ -20,12 +20,12 @@ public class BallReaderImpl implements Reader {
     public List<String> readFile(String path) throws BallException {
 
         if (path == null || path.isEmpty()) {
-            throw new BallException("Incorrect file path!");
+            throw new BallException("Incorrect file path! " + path);
         }
 
         List<String> doubleStringList;
         Path dataFile = Paths.get(path);
-        try (Stream<String> dataStream = Files.lines(dataFile)){
+        try (Stream<String> dataStream = Files.lines(dataFile)) {
 
             doubleStringList = dataStream
                     .collect(Collectors.toList());
