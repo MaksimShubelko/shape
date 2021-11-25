@@ -8,7 +8,8 @@ import by.task.shubelko.filler.RepositoryFiller;
 import by.task.shubelko.filler.WarehouseFiller;
 import by.task.shubelko.observer.BallObserver;
 import by.task.shubelko.observer.impl.BallObserverImpl;
-import by.task.shubelko.parser.BallParser;
+import by.task.shubelko.parser.Parser;
+import by.task.shubelko.parser.impl.BallParser;
 import by.task.shubelko.reader.Reader;
 import by.task.shubelko.reader.impl.BallReaderImpl;
 import by.task.shubelko.repository.impl.BallRepositoryImpl;
@@ -21,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) throws BallException {
         Reader reader = new BallReaderImpl();
-        BallParser parser = new BallParser();
+        Parser parser = new BallParser();
         RepositoryFiller repositoryFiller = new RepositoryFiller();
         WarehouseFiller warehouseFiller = new WarehouseFiller();
         //путь из source root не работает даже после пересоздания

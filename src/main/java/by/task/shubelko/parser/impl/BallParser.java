@@ -1,6 +1,7 @@
-package by.task.shubelko.parser;
+package by.task.shubelko.parser.impl;
 
 import by.task.shubelko.exception.BallException;
+import by.task.shubelko.parser.Parser;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BallParser {
+public class BallParser implements Parser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_DELIMITER_REGEX = "\\s+";
 
