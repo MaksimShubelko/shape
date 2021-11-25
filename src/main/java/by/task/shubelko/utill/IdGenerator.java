@@ -8,6 +8,6 @@ public class IdGenerator {
     }
 
     public static long generateId() {
-        return counter++;
+        return ++counter;
     }
 }
