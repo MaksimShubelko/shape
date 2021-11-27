@@ -4,10 +4,10 @@ import by.task.shubelko.entity.Ball;
 import by.task.shubelko.repository.Specification;
 
 public class RadiusSpecification implements Specification {
-    private double minRadius;
-    private double maxRadius;
+    private final double minRadius;
+    private final double maxRadius;
 
-    public void RadiusSpecification(double minRadius, double maxRadius) {
+    public RadiusSpecification(double minRadius, double maxRadius) {
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
     }

@@ -5,8 +5,8 @@ import by.task.shubelko.repository.Specification;
 import by.task.shubelko.service.impl.BallServiceImpl;
 
 public class SurfaceAreaSpecification implements Specification {
-    private double minSurfaceArea;
-    private double maxSurfaceArea;
+    private final double minSurfaceArea;
+    private final double maxSurfaceArea;
 
     public SurfaceAreaSpecification(double minSurfaceArea, double maxSurfaceArea) {
         this.minSurfaceArea = minSurfaceArea;

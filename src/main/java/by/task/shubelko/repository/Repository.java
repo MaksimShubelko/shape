@@ -7,13 +7,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public interface Repository {
-    void addBall(Ball ball);
+    void add(Ball ball);
 
-    void addAllBalls(Collection<Ball> ball);
+    void addAll(Collection<Ball> ball);
 
-    boolean removeBall(Ball ball);
+    boolean remove(Ball ball);
 
-    boolean removeAllBalls(Collection<Ball> ball);
+    boolean removeAll(Collection<Ball> ball);
 
     List<? super Ball> query(Specification specification);
 

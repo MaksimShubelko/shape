@@ -7,5 +7,5 @@ public interface BallObservable<T extends BallObserver> {
 
     void detach(T observer);
 
-    void notifyObservers() throws BallException;
+    void notifyObserver() throws BallException;
 }

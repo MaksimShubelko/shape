@@ -20,12 +20,21 @@ public class Point {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return Double.compare(point.coordinateX, coordinateX) == 0 && Double.compare(point.coordinateY, coordinateY) == 0 && Double.compare(point.coordinateZ, coordinateZ) == 0;
+        return Double.compare(point.coordinateX, coordinateX) == 0 &&
+                Double.compare(point.coordinateY, coordinateY) == 0 &&
+                Double.compare(point.coordinateZ, coordinateZ) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordinateX, coordinateY, coordinateZ);
+        int result = 11;
+        long longBits = Double.doubleToLongBits(this.coordinateX);
+        result = 31 * result + (int) (longBits - (longBits >>> 32));
+        longBits = Double.doubleToLongBits(this.coordinateY);
+        result = 31 * result + (int) (longBits - (longBits >>> 32));
+        longBits = Double.doubleToLongBits(this.coordinateZ);
+        result = 31 * result + (int) (longBits - (longBits >>> 32));
+        return result;
     }
 
     @Override

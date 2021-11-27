@@ -17,7 +17,7 @@ public class RepositoryFiller {
     public void fillBallRepository(double[] array) throws BallException {
         Ball ball = ballCreator.createBall(array);
         Repository repository = BallRepositoryImpl.getInstance();
-        repository.addBall(ball);
+        repository.add(ball);
         WarehouseFiller filler = new WarehouseFiller();
         filler.fillBallWarehouse(ball);
         logger.log(Level.INFO, "add ball " + ball + " to repository");
@@ -27,7 +27,7 @@ public class RepositoryFiller {
         BallCreator ballCreator = new BallCreator();
         Ball ball = ballCreator.createBall(center, radius);
         BallRepositoryImpl repository = BallRepositoryImpl.getInstance();
-        repository.addBall(ball);
+        repository.add(ball);
         WarehouseFiller filler = new WarehouseFiller();
         filler.fillBallWarehouse(ball);
         logger.log(Level.INFO, "add ball " + ball + " to repository");
@@ -37,7 +37,7 @@ public class RepositoryFiller {
         BallCreator ballCreator = new BallCreator();
         Ball ball = ballCreator.createBall(coordinateX, coordinateY, coordinateZ, radius);
         BallRepositoryImpl repository = BallRepositoryImpl.getInstance();
-        repository.addBall(ball);
+        repository.add(ball);
         WarehouseFiller filler = new WarehouseFiller();
         filler.fillBallWarehouse(ball);
         logger.log(Level.INFO, "add ball " + ball + " to repository");

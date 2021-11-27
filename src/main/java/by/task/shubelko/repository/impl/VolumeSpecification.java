@@ -5,8 +5,8 @@ import by.task.shubelko.repository.Specification;
 import by.task.shubelko.service.impl.BallServiceImpl;
 
 public class VolumeSpecification implements Specification {
-    private double minVolume;
-    private double maxVolume;
+    private final double minVolume;
+    private final double maxVolume;
 
     public VolumeSpecification(double minVolume, double maxVolume) {
         this.minVolume = minVolume;

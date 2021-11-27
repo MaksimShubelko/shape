@@ -1,28 +1,26 @@
 package by.task.shubelko.service.impl;
 
+import by.task.shubelko.entity.Ball;
+import by.task.shubelko.entity.Point;
 import by.task.shubelko.exception.BallException;
+import by.task.shubelko.service.ShapeService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import by.task.shubelko.service.ShapeService;
-import by.task.shubelko.entity.Ball;
-import by.task.shubelko.entity.Point;
-
-import java.util.OptionalDouble;
 
 public class BallServiceImpl implements ShapeService {
     private static final Logger logger = LogManager.getLogger();
 
     @Override
     public double calculateSurfaceArea(Ball ball) {
-        double ballSurfaceArea = OptionalDouble.of(4 * Math.pow(ball.getRadius(), 2) * Math.PI).orElse(0);
+        double ballSurfaceArea = 4 * Math.pow(ball.getRadius(), 2) * Math.PI;
         logger.log(Level.INFO, "Calculation ball surface area is successful: ball = {}, surface area = {}", ball, ballSurfaceArea);
         return ballSurfaceArea;
     }
 
     @Override
     public double calculateBallVolume(Ball ball) {
-        double ballVolume = OptionalDouble.of(4 * Math.pow(ball.getRadius(), 3) * Math.PI / 3).orElse(0);
+        double ballVolume = 4 * Math.pow(ball.getRadius(), 3) * Math.PI / 3;
         logger.log(Level.INFO, "Calculation ball volume is successful: ball = {}, volume = {}", ball, ballVolume);
         return ballVolume;
     }

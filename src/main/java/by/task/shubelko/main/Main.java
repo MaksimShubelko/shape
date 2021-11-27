@@ -15,18 +15,18 @@ import by.task.shubelko.reader.impl.BallReaderImpl;
 import by.task.shubelko.repository.impl.BallRepositoryImpl;
 import by.task.shubelko.repository.impl.RadiusSpecification;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class Main {
-    private static final String path = "src/by.task.shubelko.main/resources/data/data.txt";
+    private static final String path = "data/data.txt";
 
-    public static void main(String[] args) throws BallException {
+    public static void main(String[] args) throws BallException, URISyntaxException {
         Reader reader = new BallReaderImpl();
         Parser parser = new BallParser();
         RepositoryFiller repositoryFiller = new RepositoryFiller();
         WarehouseFiller warehouseFiller = new WarehouseFiller();
-        //путь из source root не работает даже после пересоздания
-        List<String> list = reader.readFile("src/by.task.shubelko.main/resources/data/data.txt");
+        List<String> list = reader.readFile(path);
         List<double[]> array = parser.parseStringListToArray(list);
         for (double[] doubleData : array) {
             repositoryFiller.fillBallRepository(doubleData);
@@ -46,6 +46,6 @@ public class Main {
         repository.get(1).setRadius(0.5);
         System.out.println(warehouse.get(repository.get(1).getBallId()));
         System.out.println(repository.sort(BallComparator.ID.getComparator()));
-        System.out.println(repository.query(new RadiusSpecification()));
+        System.out.println(repository.query(new RadiusSpecification(2, 7)));
     }
 }

@@ -26,7 +26,7 @@ public class BallRepositoryImpl implements Repository {
         return instance;
     }
 
-    public List<Ball> getBalls() {
+    public List<Ball> getAll() {
         return Collections.unmodifiableList(balls);
     }
 
@@ -39,38 +39,38 @@ public class BallRepositoryImpl implements Repository {
     }
 
     @Override
-    public void addBall(Ball Ball) {
-        balls.add(Ball);
-        logger.log(Level.INFO, "New ball in repository: " + Ball);
+    public void add(Ball ball) {
+        balls.add(ball);
+        logger.log(Level.INFO, "New ball in repository: " + ball);
     }
 
     @Override
-    public void addAllBalls(Collection<Ball> Ball) {
-        balls.addAll(Ball);
-        logger.log(Level.INFO, "New balls in repository: " + Ball);
+    public void addAll(Collection<Ball> balls) {
+        this.balls.addAll(balls);
+        logger.log(Level.INFO, "New balls in repository: " + balls);
     }
 
     @Override
-    public boolean removeBall(Ball Ball) {
-        return balls.remove(Ball);
+    public boolean remove(Ball ball) {
+        return balls.remove(ball);
     }
 
     @Override
-    public boolean removeAllBalls(Collection<Ball> Ball) {
-        return balls.removeAll(Ball);
+    public boolean removeAll(Collection<Ball> ball) {
+        return balls.removeAll(ball);
     }
 
     @Override
-    public List<? super Ball> query(Specification specification) {
+    public List<Ball> query(Specification specification) {
         List<Ball> result = balls.stream().filter(specification::specify).collect(Collectors.toList());
         logger.log(Level.INFO, "Query by specification " + specification + ": " + result);
         return result;
     }
 
     @Override
-    public List sort(Comparator<? super Ball> comparator) {
+    public List<Ball> sort(Comparator<? super Ball> comparator) {
         List<Ball> result = balls.stream().sorted(comparator).collect(Collectors.toList());
-        logger.log(Level.INFO, "Sorted with comparator " + comparator + ": " + result);
+        logger.log(Level.INFO, "Sorted with comparator " + comparator + " : " + result);
         return result;
     }
 }

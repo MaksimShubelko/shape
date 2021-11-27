@@ -15,11 +15,7 @@ public class BallParser implements Parser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_DELIMITER_REGEX = "\\s+";
 
-    public List<double[]> parseStringListToArray(List<String> stringList) throws BallException {
-        if (stringList == null || stringList.isEmpty()) {
-            throw new BallException("List is null or hasn't any strings");
-        }
-
+    public List<double[]> parseStringListToArray(List<String> stringList) {
         List<double[]> doubleArraysList;
 
         doubleArraysList = stringList.stream()
